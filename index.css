@@ -5,3 +5,7 @@
 div#result {
   text-align: center;
 }
+.buttons {
+  display: flex;
+  justify-content: center;
+}

@@ -1,23 +1,22 @@
-$(function() {});
 const choice = ["pickRock", "pickPaper", "pickScissors"];
 function pickRock() {
-  $("#user").html("<i class='symbol far fa-hand-rock'></i>");
-  determineOutcome();
+  $("#user").html("<i class='symbol far fa-hand-rock'></i>"); //JQuery Selector
+  determineOutcome("pickRock");
 }
 function pickPaper() {
   $("#user").html("<i class='symbol far fa-newspaper'></i>");
-  determineOutcome();
+  determineOutcome("pickPaper");
 }
 function pickScissors() {
   $("#user").html("<i class='symbol far fa-hand-scissors'></i>");
-  determineOutcome();
+  determineOutcome("pickScissors");
 }
-function determineOutcome() {
-  const userChoice = arguments.callee.caller.name; //sets userChoice to name of the function that called determineOutcome
-  const opponentChoice = choice[Math.floor(Math.random() * 3)];
+function determineOutcome(pick) {
+  const userChoice = pick;
+  const opponentChoice = choice[Math.floor(Math.random() * choice.length)];
   switch (opponentChoice) {
     case "pickRock":
-      $("#opponent").html("<i class='symbol far fa-hand-rock'></i>"); //JQuery Selector
+      $("#opponent").html("<i class='symbol far fa-hand-rock'></i>");
       console.log(
         userChoice == "pickScissors"
           ? alertFail()
@@ -27,7 +26,7 @@ function determineOutcome() {
       );
       break;
     case "pickScissors":
-      $("#opponent").html("<i class='symbol far fa-hand-scissors'></i>"); //JQuery Selector
+      $("#opponent").html("<i class='symbol far fa-hand-scissors'></i>");
       console.log(
         userChoice == "pickPaper"
           ? alertFail()
@@ -37,7 +36,7 @@ function determineOutcome() {
       );
       break;
     case "pickPaper":
-      $("#opponent").html("<i class='symbol far fa-newspaper'></i>"); //JQuery Selector
+      $("#opponent").html("<i class='symbol far fa-newspaper'></i>");
       console.log(
         userChoice == "pickRock"
           ? alertFail()
@@ -49,11 +48,11 @@ function determineOutcome() {
   }
 }
 function alertSuccess() {
-  $("#result").html("<h1 class='alert alert-success'>Success!</h1>"); //JQuery Selector
+  $("#result").html("<h1 class='alert alert-success'>Success!</h1>");
 }
 function alertFail() {
-  $("#result").html("<h1 class='alert alert-danger'>Fail!</h1>"); //JQuery Selector
+  $("#result").html("<h1 class='alert alert-danger'>Fail!</h1>");
 }
 function alertDraw() {
-  $("#result").html("<h1 class='alert alert-dark'>Try again!</h1>"); //JQuery Selector
+  $("#result").html("<h1 class='alert alert-dark'>Try again!</h1>");
 }
